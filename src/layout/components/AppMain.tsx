@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 import { renderRoute } from '@/router/utils'
 import menus from '@/router/menu';
+import AppTabs from './AppTabs';
 
 const { Content } = Layout;
 
@@ -23,6 +24,7 @@ const AppMain: FC<IAppMainProps> = () => {
         minHeight: 280,
       }}
     >
+
       <Routes>
         {renderRoute(menus)}
         <Route path={"*"} element={<Page404 />}></Route>

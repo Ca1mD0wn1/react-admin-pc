@@ -68,7 +68,6 @@ const menus: IMenuProps[] = [
     key: "/pro",
     icon: <ProfileOutlined />,
     element: <ProductIndex />,
-    index: 1,
     children: [
       {
         label: "产品列表",

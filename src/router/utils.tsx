@@ -7,7 +7,6 @@ import { IMenuProps } from './inter';
 export const renderRoute = (menus: IMenuProps[]) => {
   return menus.map((item) => {
     if (item.children) {
-
       if (!!item.index) {
         return (
           <Fragment key={item.key}>
@@ -40,12 +39,7 @@ export const renderRoute = (menus: IMenuProps[]) => {
           </Route>
         )
       }
-
     }
-
   })
 }
 
-
-
-//            <Route path='/' element={<Navigate to='/home' replace />} />
