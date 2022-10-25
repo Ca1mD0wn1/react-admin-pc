@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-
+import { FC } from 'react';
+import Page404 from '@/views/error/Index'
 import { Layout } from 'antd';
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { renderRoute } from '@/router/utils'
 import menus from '@/router/menu';
 
@@ -15,7 +15,6 @@ const AppMain: FC<IAppMainProps> = () => {
 
 
   return (
-
     <Content
       className="site-layout-background"
       style={{
@@ -26,8 +25,8 @@ const AppMain: FC<IAppMainProps> = () => {
     >
       <Routes>
         {renderRoute(menus)}
+        <Route path={"*"} element={<Page404 />}></Route>
       </Routes>
-
     </Content>
   )
 
