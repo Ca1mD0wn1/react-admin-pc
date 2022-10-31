@@ -36,7 +36,7 @@ export default function useTabs() {
   useEffect(() => {
     const index = arr.findIndex(item => item.key === pathname)
 
-    if (index == -1) {
+    if (index === -1) {
       const item = tabsArr.find(item => item.key === pathname)
       item && arr.push(item)
 
@@ -45,7 +45,7 @@ export default function useTabs() {
     } else {
       setCurrent(index)
     }
-  }, [pathname, arr])
+  }, [pathname, arr, tabsArr])
 
 
   return {

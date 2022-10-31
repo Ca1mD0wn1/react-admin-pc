@@ -3,7 +3,8 @@ import { MenuProps } from "antd"
 
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-
+import menus from "@/router/menu"
+import { getCheckedKeysArr, getPermissionMenu } from '@/router/utils'
 export default function useSideBar() {
   const collapsed = useAppSelector(state => state.CollapsedReducer.collapsed)
   const [openKeys, setOpenKeys] = useState<string[]>([])
@@ -42,11 +43,24 @@ export default function useSideBar() {
     navigate(key)
   }
 
+
+  const adminname = useAppSelector(state => state.admins.adminname)
+  const checkedKeys = useAppSelector(state => state.admins.checkedKeys)
+
+  let newMenus = menus
+  if (checkedKeys.length === 0 && adminname === "admin") {
+    newMenus = menus
+  } else {
+    const newCheckedKeys = getCheckedKeysArr(checkedKeys) as string[]
+    newMenus = getPermissionMenu(menus, newCheckedKeys)
+  }
   return {
     onOpenChange,
     collapsed,
     selectedKeys,
     openKeys,
-    changeUrl
+    changeUrl,
+    newMenus
+
   }
 }

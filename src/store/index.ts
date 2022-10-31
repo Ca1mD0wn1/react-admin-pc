@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import CollapsedReducer from './modules/collapsed'
-
+import adminReducer from './modules/admins'
 
 
 
 const store = configureStore({
   reducer: {
-    CollapsedReducer
+    CollapsedReducer,
+    admins: adminReducer
   }
 })
 

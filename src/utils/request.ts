@@ -6,7 +6,7 @@ import store from 'store2'
 const isDev = process.env.NODE_ENV === 'development'
 
 const instance = axios.create({
-  baseURL: isDev ? 'http://121.89.205.189:3001/admin' : 'http://121.89.205.189:3001/admin',
+  baseURL: isDev ? 'http://121.89.205.189:3000/admin' : 'http://121.89.205.189:3000/admin',
   timeout: 6000
 })
 
